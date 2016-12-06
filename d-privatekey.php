@@ -1,19 +1,21 @@
 <?php
 
-  $p = 47;
-  $q = 71;
-  $e = 0;
-  $d = 3;
-  $n = 33;
+  var_dump($argv);
+  $p = $argv[1];
+  $q = $argv[2];
+  $e = $argv[3];
+  $d = $argv[4];
+  $n = $argv[5];
+
   if( $n==0 )  
-  	$n = $p*$q;
+    $n = $p*$q;
   $z = ($p-1)*($q-1);
 
   if ( $d==0 ) {
 
     for ($i=1; $i++; $i<$n) {
       if( (($i*$z+1)%$e)==0 ){
-        echo $i;
+        echo "Q per calcolare d e' pari a: ".$i;
         return 0;
       }
     }
@@ -21,19 +23,19 @@
 
   else if ( $e==0 ) {
 
-  	for ($i=1; $i++; $i<$n) {
+    for ($i=1; $i++; $i<$n) {
       if( (($i*$z+1)%$d)==0 ){
-        echo $i;
+        echo "Q per calcolare e e' pari a: ".$i;
         return 0;
       }
     }
   }
 
   else {
-    $m = 15;
-    
-    $c = pow($m,$e)%$n;
-    echo $c;
+    $m = $argv[6];
+
+    $c = (pow($m,$e))%($n);
+    echo "Il messaggio criptato e': ".$c;
     return 0;
   }
 
